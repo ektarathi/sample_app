@@ -1,0 +1,14 @@
+%nav.navbar.navbar-default{role: "navigation"}
+  .navbar-header
+    %button.navbar-toggle{data: {target: "#navbarCollapse", toggle: "collapse"}}
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    = link_to 'Sample App', root_path, class: "navbar-brand"
+  #navbarCollapse.collapse.navbar-collapse
+    %ul.nav.navbar-nav.navbar-right
+      %li= link_to 'Home', root_path, class: 'btn btn-success'
+      %li= link_to 'Help', help_path, class: 'btn btn-success'
+      %li= link_to 'Login', '#', class: 'btn btn-default'
+      %li= link_to 'Contact', about_path, class: 'btn btn-default'

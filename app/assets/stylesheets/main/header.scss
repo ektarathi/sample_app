@@ -1,0 +1,25 @@
+.navbar {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  border: none;
+  background-color: $color-light-grey;
+  margin: auto;
+  .navbar-header {
+    .navbar-brand {
+      padding: 0px !important;
+      height: inherit;
+    }
+  }
+}
+
+.navbar-nav > li > a {
+  padding: 12px;
+  margin: 17px 13px 14px;
+  color: $color-dark-grey !important;
+  font-size: 28px;
+  border-radius: 0px !important;
+}
+
+.navbar-toggle {
+  margin-top: 43px;
+}

@@ -1,0 +1,10 @@
+//
+// Main file that aggregates all SCSS, and is included in application.css
+//
+
+// partials
+@import "partials/colors";
+
+// main
+@import "main/button";
+@import "main/header";

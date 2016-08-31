@@ -1,18 +1,18 @@
 require 'test_helper'
 
-class StaticPagesControllerTest < ActionController::TestCase
+class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   test "should get home" do
-    get :home
+    get root_path
     assert_response :success
   end
 
   test "should get help" do
-    get :help
+    get help_path
     assert_response :success
   end
 
   test "should get about" do
-    get :about
+    get about_path
     assert_response :success
   end
 

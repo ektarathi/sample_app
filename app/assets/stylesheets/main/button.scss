@@ -1,0 +1,55 @@
+.btn-default {
+  height: 44px;
+  border-top-color: $color-black;
+  border-bottom-color: $color-black;
+  background-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  color: $color-dark-grey;
+  border-radius: 0px;
+}
+
+.btn-default:hover {
+  background-color: $color-dark-grey;
+  color: $color-white;
+  border-color: transparent;
+}
+
+.btn-success {
+  height: 44px;
+  border-top-color: $color-green;
+  border-bottom-color: $color-green;
+  background-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  color: $color-dark-grey;
+  border-radius: 0px;
+}
+
+.btn-success:hover {
+  background-color: $color-green;
+  border-color: transparent;
+  color: $color-dark-grey;
+}
+
+.btn-default:active:focus, .btn-success:active:focus {
+  background-color: transparent;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn:focus {
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.navbar-nav > li > a.btn-success:hover {
+  background-color: $color-green;
+  border-color: transparent;
+}
+
+.navbar-nav > li > a.btn-default:hover {
+  background-color: $color-dark-grey !important;
+  color: $color-white !important;
+  border-color: transparent;
+}
