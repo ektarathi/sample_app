@@ -5,4 +5,9 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get signup_path
     assert_response :success
   end
+
+  test "should get all users" do
+  	get users_path
+  	assert_response :success
+  end
 end
