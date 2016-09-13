@@ -21,6 +21,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     follow_redirect!
     assert_response :success
-    assert_select "p", "THis is index action"
+    assert is_logged_in?
   end
 end

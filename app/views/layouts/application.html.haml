@@ -9,6 +9,7 @@
   %body
     .container-fluid
       = render partial: 'shared/header'
+      = render partial: 'shared/flash', locals: { flash: flash }
       .row
         .col-lg-12
           .body-content
