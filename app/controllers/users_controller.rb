@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :load_user, only: [:edit, :update, :show]
+  before_action :load_user, only: [:edit, :update, :show, :destroy]
   before_action :logged_in_user, only: [:index, :edit, :update]
 
   def index
@@ -35,6 +35,11 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @user.destroy
+    redirect_to users_path, flash: { notice: 'User was successfully deleted.' }
   end
 
   private
