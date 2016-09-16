@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_as_user, only: [:edit, :update]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @articles = Article.all
@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
 
   def update
   	if @article.update_attributes(allowed_params)
-      redirect_to articles_path, flash: { notice: 'Article was successfully updated.' }
+      redirect_to root_path, flash: { notice: 'Article was successfully updated.' }
     else
       render 'edit'
     end
@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
 
   def destroy
   	@article.destroy
-  	redirect_to articles_path, flash: { notice: 'Article was successfully deleted.' }
+  	redirect_to root_path, flash: { notice: 'Article was successfully deleted.' }
   end
 
   private
@@ -68,7 +68,7 @@ class ArticlesController < ApplicationController
   # Confirms the correct user article.
   def correct_user
     @article = Article.find(params[:id])
-    redirect_to root_url, flash: { error: 'Sorry you cannot perform any action on this article!!'} unless @article.user.id == current_user.id
+    redirect_to root_url, flash: { error: 'Sorry you cannot perform action on this article!!'} unless @article.user.id == current_user.id
   end
 
   def allowed_params

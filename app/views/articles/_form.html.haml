@@ -1,0 +1,5 @@
+= f.text_field :title
+= f.text_area :text
+= f.hidden_field :user_id, value: current_user.id
+= f.submit "Save Article", class: 'btn btn-success'
+= link_to 'Back', root_path, class: 'btn btn-default'

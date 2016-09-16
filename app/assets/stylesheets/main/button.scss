@@ -50,6 +50,11 @@
   color: $color-white;
 }
 
+.navbar-nav > li > a.btn-success:hover {
+  background-color: $color-green;
+  border-color: transparent;
+}
+
 .navbar-nav > li > a.btn-default:hover {
   background-color: $color-dark-grey !important;
   color: $color-white !important;

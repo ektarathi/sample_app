@@ -1,7 +1,4 @@
 %h2 New Article
 
 = bootstrap_form_for @article, url: articles_path do |f|
-  = f.text_field :title
-  = f.text_area :text
-  = f.submit "Save Article", class: 'btn btn-primary'
-  = link_to 'Back', articles_path, class: 'btn btn-default'
+  = render partial: 'form', locals: {f: f}

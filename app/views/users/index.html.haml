@@ -1,4 +1,9 @@
-%p THis is index action
+%h2 All Users
 
-- @users.each do |user|
-  %p= user.name
+= will_paginate
+
+%ul.users
+  - @users.each do |user|
+    %li
+      = link_to user.name, user
+      //= user.email
