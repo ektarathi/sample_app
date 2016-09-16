@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :load_user, only: [:edit, :update, :show]
+  before_action :logged_in_user, only: [:edit, :update]
 
   def index
   	@users = User.all
@@ -28,10 +29,25 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def update
+    if @user.update_attributes(allowed_params)
+      redirect_to @user, flash: { notice: 'User was successfully updated.' }
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def load_user
     @user = User.find_by(id: params[:id])
+  end
+
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "Please log in."
+      redirect_to login_path
+    end
   end
 
   def allowed_params

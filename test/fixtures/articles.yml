@@ -3,7 +3,8 @@
 one:
   title: hello
   text: This is hello text content
+  user: stacy
 
 two:
   title: MyString
-  text: MyString
+  text: MyString text content

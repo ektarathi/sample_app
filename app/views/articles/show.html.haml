@@ -1,0 +1,7 @@
+.article
+  .article-heading
+    .heading-text
+      %h2= @article.title
+      %p Posted on : #{@article.created_at.strftime('%v')} | Created #{time_ago_in_words(@article.created_at)} ago
+  .article-body
+    %p= @article.text

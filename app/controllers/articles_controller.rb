@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
 
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_as_user, only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update]
 
   def index
     @articles = Article.all
@@ -46,17 +48,30 @@ class ArticlesController < ApplicationController
 
   def destroy
   	@article.destroy
-
   	redirect_to articles_path, flash: { notice: 'Article was successfully deleted.' }
   end
 
   private
 
-    def set_article
-      @article = Article.find(params[:id])
-    end
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
-    def allowed_params
-    	params.require(:article).permit(:title, :text)
+  # Confirms a logged-in user.
+  def logged_in_as_user
+    unless logged_in?
+      flash[:danger] = "Please log in to edit the article."
+      redirect_to login_path
     end
+  end
+
+  # Confirms the correct user article.
+  def correct_user
+    @article = Article.find(params[:id])
+    redirect_to root_url, flash: { error: 'Sorry you cannot perform any action on this article!!'} unless @article.user.id == current_user.id
+  end
+
+  def allowed_params
+  	params.require(:article).permit(:title, :text, :user_id)
+  end
 end

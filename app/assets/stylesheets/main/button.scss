@@ -1,5 +1,4 @@
 .btn-default {
-  height: 44px;
   border-top-color: $color-black;
   border-bottom-color: $color-black;
   background-color: transparent;
@@ -16,7 +15,6 @@
 }
 
 .btn-success {
-  height: 44px;
   border-top-color: $color-green;
   border-bottom-color: $color-green;
   background-color: transparent;
@@ -38,14 +36,18 @@
   outline: none;
 }
 
-.btn.active.focus, .btn.active:focus, .btn.focus, .btn:focus {
+.btn-success.active:focus, .btn-success:focus {
   border: 1px solid transparent;
   outline: none;
+  background-color: $color-green;
+  color: $color-dark-grey;
 }
 
-.navbar-nav > li > a.btn-success:hover {
-  background-color: $color-green;
-  border-color: transparent;
+.btn-default.active:focus, .btn-default:focus {
+  border: 1px solid transparent;
+  outline: none;
+  background-color: $color-dark-grey;
+  color: $color-white;
 }
 
 .navbar-nav > li > a.btn-default:hover {

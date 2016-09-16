@@ -3,7 +3,7 @@ require 'test_helper'
 class ArticlesCreateTest < ActionDispatch::IntegrationTest
 
   def setup
-    @user = users(:milley)
+    @user = users(:stacy)
     @article = articles(:one)
   end
 

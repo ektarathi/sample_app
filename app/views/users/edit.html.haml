@@ -1,0 +1,5 @@
+.user-form
+  %h1 Edit Form
+  = bootstrap_form_for @user do |f|
+    = render partial: 'form', locals: {f: f}
+    = f.submit "Save", class: 'btn btn-success btn-lg'

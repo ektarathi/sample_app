@@ -6,8 +6,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     get signup_path
     post users_path, user: { name:  "",
                                          email: "user@invalid",
-                                         password:              "foo",
-                                         password_confirmation: "bar" }
+                                         password:              "password",
+                                         password_confirmation: "password" }
     assert_template 'users/new'
     assert_response :success
   end
