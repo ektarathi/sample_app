@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_as_user, only: [:edit, :update]
+  before_action :logged_in_as_user, only: [:edit, :update, :show]
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -60,15 +60,14 @@ class ArticlesController < ApplicationController
   # Confirms a logged-in user.
   def logged_in_as_user
     unless logged_in?
-      flash[:danger] = "Please log in to edit the article."
-      redirect_to login_path
+      redirect_to login_path, flash: { danger: 'Please log in to edit the article.'}
     end
   end
 
   # Confirms the correct user article.
   def correct_user
     @article = Article.find(params[:id])
-    redirect_to root_url, flash: { error: 'Sorry you cannot perform action on this article!!'} unless @article.user.id == current_user.id
+    redirect_to root_url, flash: { error: 'Article can be edited/viewed by their own user!!'} unless @article.user.id == current_user.id
   end
 
   def allowed_params
