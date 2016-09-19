@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :articles
+  resources :account_activations, only: [:edit]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

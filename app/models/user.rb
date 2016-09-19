@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :activation_token
   before_save { self.email = email.downcase }
+  before_create :create_activation_digest
   has_many :articles
 
   validates :name,  presence: true, length: { maximum: 50 }
@@ -39,5 +40,13 @@ class User < ActiveRecord::Base
   def authenticated?(remember_token)
     return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+
+  private
+
+  ## since this method is used internally by the User model, that's why it's being declared as Private
+  def create_activation_digest
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest(activation_token)
   end
 end

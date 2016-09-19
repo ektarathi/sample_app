@@ -18,9 +18,9 @@ class UsersController < ApplicationController
     @user = User.new(allowed_params)
 
     if @user.save
-      log_in @user
-      flash[:message] = 'You have successfully registered !!'
-      redirect_to @user
+      UserMailer.account_activation(@user).deliver_now
+      flash[:message] = "Please check your email to activate your account."
+      redirect_to root_url
     else
       render 'new'
     end
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
 
   def logged_in_user
     unless logged_in?
-      flash[:danger] = "Please log in."
+      flash[:error] = "Please log in."
       redirect_to login_path
     end
   end

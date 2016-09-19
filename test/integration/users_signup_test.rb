@@ -21,6 +21,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     follow_redirect!
     assert_response :success
-    assert is_logged_in?
+    # Commenting the logged_in as we are activating account first for the user before logging into the portal.
+    #assert is_logged_in?
   end
 end
