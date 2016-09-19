@@ -11,8 +11,8 @@ class SessionsController < ApplicationController
       redirect_to user
     else
       # Display error message for unsucessful login attempt
-      puts "entering else condition"
-      flash.now[:danger] = 'Invalid email/password combination'
+      puts "entering else testing condition"
+      flash.now[:error] = "Invalid email/password combination"
       render 'new'
     end
   end

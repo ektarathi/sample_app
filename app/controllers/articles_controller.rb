@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
   def new
   	@article = Article.new
     if !logged_in?
-      redirect_to login_path
+      redirect_to login_path, flash: { error: 'Please log in to create new article.'}
     else
       render 'new'
     end
@@ -60,7 +60,7 @@ class ArticlesController < ApplicationController
   # Confirms a logged-in user.
   def logged_in_as_user
     unless logged_in?
-      redirect_to login_path, flash: { danger: 'Please log in to edit the article.'}
+      redirect_to login_path, flash: { error: 'Please log in to edit the article.'}
     end
   end
 
