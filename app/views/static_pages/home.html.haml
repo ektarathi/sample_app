@@ -13,13 +13,13 @@
 
   %table.table.table-bordered.table-striped
     %colgroup
-      %col.col-md-2
-      %col.col-md-7
-      %col.col-md-3
+      %col.col-md-4
+      %col.col-md-4
+      %col.col-md-4
     %tr
-      %th{style: "text-align: center"} Title
-      %th{style: "text-align: center"} Article Text
-      %th{style: "text-align: center"} Action
+      %th{style: "text-align: center"} HEADING
+      %th{style: "text-align: center"} ARTICLE DESCRIPTION
+      %th{style: "text-align: center"} ACTION
     - @articles.each do |article|
       %tr
         %td{style: "text-align: center"}= article.title
@@ -28,6 +28,6 @@
           = link_to 'Show', article, class: 'btn btn-warning'
           = link_to 'Edit', edit_article_path(article), class: 'btn btn-primary'
           = link_to 'Delete', article_path(article), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
-      - if @articles.size == 0
-        %tr
-          %td.center{colspan: "5"} Sorry: There are currently no users to display.
+    - if @articles.size == 0
+      %tr
+        %td.center{colspan: "5"} Sorry: There are currently no articles to display.

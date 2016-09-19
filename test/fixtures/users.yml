@@ -4,8 +4,12 @@ stacy:
   name: stacy
   email: stacy.millet@gmail.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now.to_datetime %>
 
 milleytest:
   name: milleytest
   email: milleytest@yahoo.co.uk
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now.to_datetime %>
