@@ -15,5 +15,6 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     #assert_select "a[href=?]", help_path
     #assert_select "a[href=?]", about_path
     assert_select "a[href=?]", new_article_path
+    assert_select "a[href=?]", new_subscribe_path
   end
 end

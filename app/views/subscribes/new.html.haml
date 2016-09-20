@@ -1,0 +1,5 @@
+.subscribe
+  %h1 Please subscribe with us for news and updates
+  = bootstrap_form_for @subscribe, url: subscribes_path do |f|
+    = render partial: 'form', locals: {f: f}
+    = f.submit "Submit", class: 'btn btn-success btn-lg'

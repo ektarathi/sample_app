@@ -15,4 +15,9 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     get about_path
     assert_response(200)
   end
+
+  test "should get thanks" do
+    get thank_you_path
+    assert_response(200)
+  end
 end

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get  '/help',    to: 'static_pages#help'
   get  '/about',   to: 'static_pages#about'
   get  '/contact', to: 'static_pages#contact'
+  get '/thank-you', to: 'static_pages#thanks'
 
   get '/signup', to: 'users#new'
   get    '/login',   to: 'sessions#new'
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   resources :users
   resources :articles
   resources :account_activations, only: [:edit]
+  resources :subscribes, only: [:new, :create]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
