@@ -5,10 +5,17 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      # Log the user and redirect to home page
-      log_in user
-      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to user
+      # Log the user after account activation and redirect to user page
+      if user.activated?
+        log_in user
+        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+        redirect_to user
+      else
+        message  = "Account not activated. "
+        message += "Check your email for the activation link."
+        flash[:message] = message
+        redirect_to root_url
+      end
     else
       # Display error message for unsucessful login attempt
       puts "entering else testing condition"
