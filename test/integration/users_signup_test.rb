@@ -22,13 +22,9 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                        email: "user@example.com",
                        password:              "password",
                        password_confirmation: "password" }
-    #assert_response :redirect
-    #follow_redirect!
-    #assert_response :success
     
     # Exactly 1 message is delievered.
     assert_equal 1, ActionMailer::Base.deliveries.size
-    # the Users controller’s create action defines an @user variable, so we can access it in the test using assigns(:user)
     user = assigns(:user)
     assert_not user.activated?
     # Try to log in before activation.
@@ -46,7 +42,5 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_template 'users/show'
     assert is_logged_in?
-    # Commenting the logged_in as we are activating account first for the user before logging into the portal.
-    #assert is_logged_in?
   end
 end
