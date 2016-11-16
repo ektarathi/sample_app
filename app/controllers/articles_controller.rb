@@ -62,7 +62,7 @@ class ArticlesController < ApplicationController
   # Confirms the correct user article.
   def correct_user
     @article = Article.find(params[:id])
-    redirect_to root_url, flash: { error: 'Article can be edited/viewed by their own user!!'} unless @article.user.id == current_user.id
+    redirect_to root_url, flash: { error: 'Article can be edited/viewed/deleted by their own user!!'} unless @article.user.id == current_user.id
   end
 
   def allowed_params
