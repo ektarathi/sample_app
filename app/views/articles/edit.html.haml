@@ -1,4 +1,5 @@
-%h3 Editing Article
+.form-display
+  %h3.center Editing Article
 
-= bootstrap_form_for @article, :html => { :multipart => true } do |f|
-  = render partial: 'form', locals: {f: f}
+  = bootstrap_form_for @article, :html => { :multipart => true } do |f|
+    = render partial: 'form', locals: {f: f}

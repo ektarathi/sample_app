@@ -37,6 +37,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'haml-rails'
 
+# Mail Chimp
+gem 'mailchimp-api', require: 'mailchimp'
+
 # Bootstrap forms
 gem 'bootstrap_form'
 gem 'will_paginate',           '3.1.0'

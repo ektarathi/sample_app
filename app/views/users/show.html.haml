@@ -1,14 +1,13 @@
-.col-md-4
-.col-md-4
+.col-sm-4
+.col-sm-4
   .user_info
     = gravatar_for @user
-    %h2= @user.name
-    %h4= @user.email
-    %h5= @user.articles.size
+    %h2 Welcome #{@user.name},
+    %h4 Your email Id is: #{@user.email}
     %table.table.table-bordered.table-striped
       %colgroup
-        %col.col-md-6
-        %col.col-md-6
+        %col.col-sm-6
+        %col.col-sm-6
       %tr
         %th{style: "text-align: center"} Title
         %th{style: "text-align: center"} Article Text

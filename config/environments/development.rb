@@ -37,8 +37,8 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   config.action_mailer.delivery_method = :letter_opener
-  host = 'localhost:8080' # Don't use this literally; use your local dev host instead
-  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+
+  config.action_mailer.default_url_options = { host: 'localhost:3000', protocol: 'http' }
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
