@@ -37,11 +37,6 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     get edit_article_path(@article)
     assert_not_equal @user.id, @article.user.id
     assert_redirected_to root_url
-
-    #puts "checking id of resource"
-    #puts @user.id
-    #puts "article use id data"
-    #puts @article.user.id
   end
 
   test "should not update other user article" do
